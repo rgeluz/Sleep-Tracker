@@ -1,14 +1,184 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      <!--Ionic Blank -->
+      Sleep Tracker
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
+  <!-- <div class="ion-padding">
     The world is your oyster.
     <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  </div> -->
+
+  <!--TODO------------------------------------------------------------>
+  <p>Log Overnight Sleep</p> <!--Move this to page title-->
+
+  <ion-list>
+    <ion-list-header>Sleep Start:</ion-list-header>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="MMMM DD, YYYY" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="HH:mm:ss" placeholder="Selet Time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  
+
+  <ion-list>
+    <ion-list-header>Sleep End:</ion-list-header>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="MMMM DD, YYYY" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="HH:mm:ss" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  
+  <p></p>
+  <!--<ion-item>
+    <ion-lable>Time</ion-lable>
+    <ion-datetime displayFormat="HH:mm" placholder="Select Time"></ion-datetime>
+  </ion-item>-->
+
+  <p></p>
+
+  <!-------------------------------------------------------------->
+  <p>Log Sleepiness</p>
+  
+  <ion-list>
+    <ion-list-header>Enter Date and Time:</ion-list-header>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="MMMM DD, YYYY" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-datetime displayFormat="HH:mm:ss" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  
+
+
+  <ion-list>
+    <!-- <ion-list-header>Enter Sleepiness:</ion-list-header>
+
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>Name</ion-label>
+      </ion-list-header>
+
+
+      <ion-item>
+        <ion-label>Feeling active, vital, alert, or wide awake</ion-label>
+        <ion-radio slot="start" value="biff" checked></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Biff</ion-label>
+        <ion-radio slot="start" value="biff" checked></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Griff</ion-label>
+        <ion-radio slot="start" value="griff"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Buford</ion-label>
+        <ion-radio slot="start" value="buford"></ion-radio>
+      </ion-item>
+
+      
+
+    </ion-radio-group> -->
+  </ion-list>
+
+  <ion-list>
+      <ion-list-header>Enter Sleepiness</ion-list-header>
+    
+
+      <ion-item>
+        <ion-label>Degree of Sleepiness</ion-label>
+        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="1">Feeling active, vital, alert, or wide awake</ion-select-option>
+          <ion-select-option value="2">Functioning at high levels, but not at peak; able to concentrate</ion-select-option>
+          <ion-select-option value="3">Awake, but relaxed; responsive but not fully alert</ion-select-option>
+          <ion-select-option value="4">Somewhat foggy, let down</ion-select-option>
+          <ion-select-option value="5">Foggy; losing interest in remaining awake; slowed down</ion-select-option>
+          <ion-select-option value="6">Sleepy, woozy, fighting sleep; prefer to lie down</ion-select-option>
+          <ion-select-option value="7">No longer fighting sleep, sleep onset soon; having dream-like thoughts</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+    </ion-list>
+
+
+
+  <p></p>
+
+  <!--TODO------------------------------------------------------------>
+  <p>View Data</p>
+  
+  <p></p>
+
+  <!--TODO------------------------------------------------------------>
+  <!--<ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button tab="sleep">
+        <ion-icon name="bed"></ion-icon>
+        <ion-label>Sleep</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="sleepiness">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>Sleepiness</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button tab="viewdata">
+        <ion-icon name="analytics"></ion-icon>
+        <ion-label>View Data</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="share">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Share</ion-label>
+      </ion-tab-button> -->
+
+      <!-- <ion-tab-button tab="schedule">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Schedule</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="speakers">
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>Speakers</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Map</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button> -->
+
+
+   <!-- </ion-tab-bar>
+
+
+  </ion-tabs> -->
+
 </ion-content>
+
+
