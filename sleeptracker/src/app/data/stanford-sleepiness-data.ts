@@ -15,13 +15,24 @@ export class StanfordSleepinessData extends SleepData {
 
 	private loggedValue:number;
 
-	constructor(loggedValue:number, loggedAt:Date = new Date()) {
+	/*constructor(loggedValue:number, loggedAt:Date = new Date()) {
 		super();
+		this.loggedValue = loggedValue;
+		this.loggedAt = loggedAt;
+	}*/
+
+	constructor(loggedValue:number, loggedAt:string = new Date().toISOString()) {
+		super(loggedAt);
 		this.loggedValue = loggedValue;
 		this.loggedAt = loggedAt;
 	}
 
 	summaryString():string {
 		return this.loggedValue + ": " + StanfordSleepinessData.ScaleValues[this.loggedValue];
+	}
+
+	dateString():string { //RG
+		var sleepinessStartDate = new Date(this.loggedAt);
+		return "Night of " + sleepinessStartDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 	}
 }

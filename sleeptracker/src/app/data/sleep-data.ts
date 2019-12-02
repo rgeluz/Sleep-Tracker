@@ -2,19 +2,22 @@ import { generate } from 'shortid';
 
 export class SleepData {
 	id:string;
-	loggedAt:Date;
+	//loggedAt:Date;
+	loggedAt:string;
 
-	constructor() {
+	constructor(loggedAt:string) {
 		//Assign a random (unique) ID. This may be useful for comparison (e.g., are two logged entries the same).
 		this.id = generate();
-		this.loggedAt = new Date();
+		//this.loggedAt = new Date().toISOString();
+		this.loggedAt = loggedAt;
 	}
 
-	summaryString():string {
+	summaryString():string {	//TODO
 		return 'Unknown sleep data';
 	}
 
-	dateString():string {
-		return this.loggedAt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+	dateString():string {	//TODO
+		//return this.loggedAt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+		return "TODO Later";
 	}
 }
