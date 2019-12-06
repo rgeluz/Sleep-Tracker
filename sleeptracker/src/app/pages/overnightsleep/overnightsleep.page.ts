@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SleepService } from '../../services/sleep.service';
 import { OvernightSleepData  } from '../../data/overnight-sleep-data';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-overnightsleep',
@@ -10,10 +11,25 @@ import { OvernightSleepData  } from '../../data/overnight-sleep-data';
 export class OvernightsleepPage implements OnInit {
   startDateTime:string=new Date().toISOString();
   endDateTime:string=new Date().toISOString();
+  overnightSleepDataArray: OvernightSleepData[];
+  recentOvernightSleepData: OvernightSleepData;
 
-  constructor(private sleepService:SleepService) { }
+  constructor(private sleepService:SleepService, public toastController: ToastController) { }
 
   ngOnInit() {
+    this.overnightSleepDataArray = SleepService.AllOvernightData;
+    this.recentOvernightSleepData = this.overnightSleepDataArray[this.overnightSleepDataArray.length-1]; 
+  }
+
+  //See documentation for 'ion-toast'
+  async presentToast(duration_:number) {
+    const toast = await this.toastController.create({
+      message: 'Your entry has been saved',
+      position: 'top',
+      color: 'success',
+      duration: duration_ //2000
+    });
+    toast.present();
   }
 
   addEntryClicked() {
@@ -36,7 +52,10 @@ export class OvernightsleepPage implements OnInit {
 
     
     this.sleepService.logOvernightData(overnightSleepData);
-    
+    this.presentToast(2000);
+    //retrieve recent element
+    this.recentOvernightSleepData = this.overnightSleepDataArray[this.overnightSleepDataArray.length-1]; 
+
     //Summary
     /*this.sleepService.summaryOfAllOvernightData();
     this.sleepService.summaryOfAllSleepinessData();

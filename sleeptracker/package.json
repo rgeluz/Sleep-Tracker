@@ -25,6 +25,7 @@
     "@ionic/angular": "^4.7.1",
     "@types/shortid": "0.0.29",
     "core-js": "^2.5.4",
+    "ng-circle-progress": "^1.5.1",
     "rxjs": "~6.5.1",
     "shortid": "^2.2.15",
     "tslib": "^1.9.0",

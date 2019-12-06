@@ -19,6 +19,10 @@
     <ion-list>
       <ion-list-header>Enter Sleepiness</ion-list-header>
       <ion-item>
+      <!--<ion-item *ngFor="let degree of scaleValues">
+        <ion-label>{{degree}}</ion-label>
+        <ion-radio slot="end"></ion-radio>
+        </ion-item> -->
         <ion-label>Degree of Sleepiness</ion-label>
         <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="degree">
           <ion-select-option value="1">1 Feeling active, vital, alert, or wide awake</ion-select-option>
@@ -28,7 +32,10 @@
           <ion-select-option value="5">5 Foggy; losing interest in remaining awake; slowed down</ion-select-option>
           <ion-select-option value="6">6 Sleepy, woozy, fighting sleep; prefer to lie down</ion-select-option>
           <ion-select-option value="7">7 No longer fighting sleep, sleep onset soon; having dream-like thoughts</ion-select-option>
-        </ion-select>
+        </ion-select> 
+      
+      
+
       </ion-item>
     </ion-list>
 

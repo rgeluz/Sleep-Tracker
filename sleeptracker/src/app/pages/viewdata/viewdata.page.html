@@ -5,74 +5,25 @@
 </ion-header>
 
 <ion-content>
-<p>Sleepiness Data</p>
-<ion-list>
-  <ion-item *ngFor="let sleepinessData of testArray">
-    <ion-label>{{sleepinessData}}</ion-label>
-  </ion-item>
-</ion-list>
 
-<!-- List of Text Items -->
-<ion-list>
-    <ion-item>
-      <ion-label>Pokémon Yellow</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Mega Man X</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>The Legend of Zelda</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Pac-Man</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Super Mario World</ion-label>
-    </ion-item>
-    <ion-item *ngFor="let testElement of testArray">
-      <ion-label>{{testElement}}</ion-label>
-    </ion-item>
-  </ion-list>
-  
-  <!-- List of Input Items -->
-  <ion-list>
-    <ion-item>
-      <ion-label>Input</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Toggle</ion-label>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Radio</ion-label>
-      <ion-radio slot="end"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>Checkbox</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
-    </ion-item>
-  </ion-list>
-  
-  <!-- List of Sliding Items -->
-  <ion-list>
-    <ion-item-sliding>
+  <p>Cards</p>
+    <p>Overnight Sleep Data </p>
+    <ion-card *ngFor="let overnightSleepData of overnightSleepDataArray">
+        <ion-card-header>
+          <ion-card-subtitle>{{overnightSleepData.loggedAt}}</ion-card-subtitle>
+          <ion-card-title>{{overnightSleepData.dateString()}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{overnightSleepData.summaryString()}}<br>
+          PLACE CIRCULAR PROGRESS BAR HERE
+        </ion-card-content>
+      </ion-card>
+
+    <p>Sleepiness Data </p>
+    <ion-card *ngFor="let sleepinessData of sleepinessDataArray">
       <ion-item>
-        <ion-label>Item</ion-label>
+        <ion-label>{{sleepinessData.loggedAt}}</ion-label>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  
-    <ion-item-sliding>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-  
+      <ion-card-content>{{sleepinessData.summaryString()}}</ion-card-content>
+    </ion-card>
+    
 </ion-content>

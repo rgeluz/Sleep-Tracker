@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SleepService } from '../../services/sleep.service';
 import { StanfordSleepinessData } from '../../data/stanford-sleepiness-data';
 
+
 @Component({
   selector: 'app-sleepiness',
   templateUrl: './sleepiness.page.html',
@@ -10,10 +11,12 @@ import { StanfordSleepinessData } from '../../data/stanford-sleepiness-data';
 export class SleepinessPage implements OnInit {
   dateTime:string = new Date().toISOString();
   degree:number;
+  scaleValues: string[];
 
   constructor(private sleepService:SleepService) { }
 
   ngOnInit() {
+    //this.scaleValues = StanfordSleepinessData.ScaleValues; //not using 
   }
 
   addEntryClicked() {

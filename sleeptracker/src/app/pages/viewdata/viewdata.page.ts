@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SleepService } from '../../services/sleep.service';
+import { StanfordSleepinessData } from '../../data/stanford-sleepiness-data';
+import { OvernightSleepData } from '../../data/overnight-sleep-data';
 
 @Component({
   selector: 'app-viewdata',
@@ -7,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewdataPage implements OnInit {
   testArray:string[] = ['one','two','three','four'];
+  overnightSleepDataArray: OvernightSleepData[];
+  sleepinessDataArray: StanfordSleepinessData[];
 
-  constructor() { }
+  constructor(private sleepService:SleepService) { }
 
   ngOnInit() {
+    this.overnightSleepDataArray = SleepService.AllOvernightData;
+    this.sleepinessDataArray = SleepService.AllSleepinessData;
   }
 
 }

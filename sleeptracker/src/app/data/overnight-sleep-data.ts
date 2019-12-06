@@ -4,7 +4,7 @@ export class OvernightSleepData extends SleepData {
 	//private sleepStart:Date;
 	//private sleepEnd:Date;
 	private sleepStart:string;
-	private sleepEnd:string
+	private sleepEnd:string;
 
 	/*constructor(sleepStart:Date, sleepEnd:Date) {
 		super();
