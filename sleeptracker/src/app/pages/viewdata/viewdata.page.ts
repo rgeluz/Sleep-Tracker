@@ -12,12 +12,30 @@ export class ViewdataPage implements OnInit {
   testArray:string[] = ['one','two','three','four'];
   overnightSleepDataArray: OvernightSleepData[];
   sleepinessDataArray: StanfordSleepinessData[];
+  showSleepDataCards: boolean;
+  showSleepinessDataCards: boolean;
 
   constructor(private sleepService:SleepService) { }
 
   ngOnInit() {
     this.overnightSleepDataArray = SleepService.AllOvernightData;
     this.sleepinessDataArray = SleepService.AllSleepinessData;
+    this.showSleepDataCards = true;
+    this.showSleepinessDataCards = false;
+  }
+
+  segmentChanged(ev: any) {
+    console.log('Segment changed', ev);
+    console.log("event.detail.value: " + ev.detail.value);
+    if(ev.detail.value=="sleepData") {
+      console.log("show sleep data!");
+      this.showSleepDataCards = true; 
+      this.showSleepinessDataCards = false;
+    } else if (ev.detail.value=="sleepinessData"){
+      console.log("show sleepiness data!");
+      this.showSleepDataCards = false;
+      this.showSleepinessDataCards = true;
+    }
   }
 
 }

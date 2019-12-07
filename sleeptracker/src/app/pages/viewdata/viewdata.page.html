@@ -5,50 +5,60 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="sleepData">
+      <ion-segment-button value="sleepData">
+          <ion-label>Sleep Data</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="sleepinessData">
+          <ion-label>Sleepiness Data</ion-label>
+        </ion-segment-button>
+  </ion-segment>
 
-  <p>Cards</p>
-  <p>Overnight Sleep Data </p>
+  <!-- Overnight Sleep Data-->
+  <div *ngIf=showSleepDataCards>
     <ion-card *ngFor="let overnightSleepData of overnightSleepDataArray">
-        <ion-card-header>
-          <ion-card-subtitle>{{overnightSleepData.loggedAt}}</ion-card-subtitle>
-          <ion-card-title>{{overnightSleepData.dateString()}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>{{overnightSleepData.summaryString()}}<br>
-          
-          <circle-progress
-          [percent]=overnightSleepData.getSleepPercentage()
-          [radius]="100"
-          [showSubtitle]="false"
-          [outerStrokeWidth]="16"
-          [innerStrokeWidth]="0"
-          [outerStrokeColor]=overnightSleepData.getCircleProgressBarColor()
-          [innerStrokeColor]="'#C7E596'"
-          [animation]="true"
-          [animationDuration]="300"
-          ></circle-progress>
-
-        <!--
-          PLACE CIRCULAR PROGRESS BAR HERE
-          <circle-progress
-          [percent]="85"
-          [radius]="100"
-          [outerStrokeWidth]="16"
-          [innerStrokeWidth]="8"
-          [outerStrokeColor]="'#78C000'"
-          [innerStrokeColor]="'#C7E596'"
-          [animation]="true"
-          [animationDuration]="300"
+      <ion-card-header>
+        <ion-card-subtitle>{{overnightSleepData.loggedAt}}</ion-card-subtitle>
+        <ion-card-title>{{overnightSleepData.dateString()}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{overnightSleepData.summaryString()}}<br>
+        
+        <circle-progress
+        [percent]=overnightSleepData.getSleepPercentage()
+        [radius]="100"
+        [showSubtitle]="false"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="0"
+        [outerStrokeColor]=overnightSleepData.getCircleProgressBarColor()
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="300"
         ></circle-progress>
-        -->
-        </ion-card-content>
-      </ion-card>
 
-    <p>Sleepiness Data </p>
+      <!--
+        PLACE CIRCULAR PROGRESS BAR HERE
+        <circle-progress
+        [percent]="85"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="300"
+      ></circle-progress>
+      -->
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Sleepiness Data-->
+  <div  *ngIf=showSleepinessDataCards >
     <ion-card *ngFor="let sleepinessData of sleepinessDataArray">
       <ion-item>
         <ion-label>{{sleepinessData.loggedAt}}</ion-label>
       </ion-item>
       <ion-card-content>{{sleepinessData.summaryString()}}</ion-card-content>
     </ion-card>
-    
+  </div>
 </ion-content>
