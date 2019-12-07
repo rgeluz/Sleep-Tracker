@@ -60,7 +60,8 @@ export class OvernightsleepPage implements OnInit {
     /*this.sleepService.summaryOfAllOvernightData();
     this.sleepService.summaryOfAllSleepinessData();
     this.sleepService.summaryOfAllSleepData();*/
-    
+    this.sleepService.getAllOvernightDataFromStorage();
+    this.sleepService.getAllSleepinessDataFromStorage();
     
   }
 

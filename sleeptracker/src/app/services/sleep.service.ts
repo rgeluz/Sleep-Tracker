@@ -2,6 +2,19 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+//import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+//import { Observable} from 'rxjs';
+//import { map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
+
+/* export interface Sleep_Data {
+  id:string;
+  loggedAt:string;
+  loggedValue:number; //used for sleepinees data
+  sleepStart:string;  //used for overnight sleep data
+  sleepEnd:string;  //used for overnight sleep data
+} */
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +23,51 @@ export class SleepService {
 	private static LoadDefaultData:boolean = true;
 	public static AllSleepData:SleepData[] = [];
 	public static AllOvernightData:OvernightSleepData[] = [];
-	public static AllSleepinessData:StanfordSleepinessData[] = [];
+  public static AllSleepinessData:StanfordSleepinessData[] = [];
+  
+  //private sleep_dataCollection: AngularFirestoreCollection<Sleep_Data>;
+  //private sleep_data: Observable<Sleep_Data[]>;
 
-  constructor() {
+  constructor(/*db: AngularFirestore*/     
+                private AllSleepDataStorage: Storage,
+                private AllOvernightDataStorage: Storage,
+                private AllSleepinessDataStorage: Storage
+              ) {
+
+
+
+    //this.sleep_dataCollection = db.collection<Sleep_Data>('sleep_data'); //"sleep_data" name of collection inside firebase
+
+    //From "How to Create a Simple Ionic 4 Firebase App with AngularFire" https://www.youtube.com/watch?v=H20l9ofyR54
+    //this.sleep_data = this.sleep_dataCollection.snapshotChanges();
+
+    //append below to snapshotChange() above. for example snapshotChanges().pipe ( ...)
+    // if you need to update or delete an object. We may not 
+    //need to do this.
+    /*.pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );*/
+
   	if(SleepService.LoadDefaultData) {
       this.addDefaultData();
   		SleepService.LoadDefaultData = false;
   	}
   }
+
+  //Firebase methods:  //don't need to update or remove any records
+  /*getAllSleepDataFromDB(){    //retrive all records from collection
+    return this.sleep_dataCollection;
+  }
+  addSleepDataToDB(sleepData : Sleep_Data){ //add record to collection
+    return this.sleep_dataCollection.add(sleepData);
+  }*/
+
 
   private addDefaultData() {
     /*console.log('addDefaultData()');
@@ -34,17 +84,24 @@ export class SleepService {
   public logOvernightData(sleepData:OvernightSleepData) {
     console.log('logOvernightData()');
   	SleepService.AllSleepData.push(sleepData);
-  	SleepService.AllOvernightData.push(sleepData);
+    SleepService.AllOvernightData.push(sleepData);
+    
+    this.AllOvernightDataStorage.set(sleepData.id, sleepData);
+
+
+
   }
 
   public logSleepinessData(sleepData:StanfordSleepinessData) {
     console.log('logSleepinessData()');
   	SleepService.AllSleepData.push(sleepData);
-  	SleepService.AllSleepinessData.push(sleepData);
+    SleepService.AllSleepinessData.push(sleepData);
+    
+    this.AllSleepinessDataStorage.set(sleepData.id, sleepData);
   }
 
 
-  public summaryOfAllSleepData() {
+  /*public summaryOfAllSleepData() {
     console.log('summaryOfAllSleepData(): ');
     SleepService.AllSleepData.forEach( (element)=> {
       console.log(element.id);
@@ -69,6 +126,23 @@ export class SleepService {
       console.log(element.loggedAt);
       console.log(element.summaryString());
     });
-  }
+  }*/
 
+  public getAllOvernightDataFromStorage() {
+    console.log('getAllOvernightDataFromStorage(): ');
+    SleepService.AllOvernightData.forEach( (element) => {
+      this.AllSleepinessDataStorage.get(element.id).then( (val) => {
+        console.log(val);
+      });
+    });
+  }
+  
+  public getAllSleepinessDataFromStorage(){
+    console.log('getAllSleepinessDataFromStorage(): ');
+    SleepService.AllSleepinessData.forEach( (element) => {
+      this.AllOvernightDataStorage.get(element.id).then( (val) => {
+        console.log(val);
+      });
+    });
+  }
 }

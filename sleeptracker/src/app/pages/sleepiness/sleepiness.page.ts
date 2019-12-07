@@ -53,6 +53,7 @@ export class SleepinessPage implements OnInit {
     /*this.sleepService.summaryOfAllOvernightData();
     this.sleepService.summaryOfAllSleepinessData();
     this.sleepService.summaryOfAllSleepData();*/
-    
+    this.sleepService.getAllOvernightDataFromStorage();
+    this.sleepService.getAllSleepinessDataFromStorage();
   }
 }
