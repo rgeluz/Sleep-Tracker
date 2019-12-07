@@ -93,7 +93,7 @@ date started: 11/23/2019
 
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
-	They can log overnight sleep, once they are finish sleeping, they specific start time/date and end time/date using the respective date picker ui controls.
+	They can log overnight sleep, once they are finish sleeping, they can specify start time/date and end time/date using the respective date picker ui controls.
 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
@@ -116,4 +116,5 @@ date started: 11/23/2019
 	I initially used Firebase, however I started implementing it, a few hours before the assignment deadline, and came across compilation errors for importing certain items, thus I resorted to using Ionic Storage.
 
 14. Did you add any "extra" features, such as other data to log, the ability to edit or delete data, or changes to the styling of the app? If so, what did you add? How do these add to the experience of the app?
+	I added a circular progress bar for the overnight sleep data and they are enclosed in ion-cards. I added a toast feature when adding a new entry. The main app uses a tab navigation and in the view data tab there I use a ion-segment component to be able to toggle between viewing overnight sleep or sleepiness data.
 
