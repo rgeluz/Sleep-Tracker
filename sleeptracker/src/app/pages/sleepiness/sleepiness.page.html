@@ -33,8 +33,6 @@
           <ion-select-option value="6">6 Sleepy, woozy, fighting sleep; prefer to lie down</ion-select-option>
           <ion-select-option value="7">7 No longer fighting sleep, sleep onset soon; having dream-like thoughts</ion-select-option>
         </ion-select> 
-      
-      
 
       </ion-item>
     </ion-list>
@@ -44,5 +42,13 @@
       ADD ENTRY
       <ion-icon slot="end" name="add-circle"></ion-icon>
     </ion-button>
+
+    <ion-card>
+      <ion-item>
+        <ion-label>{{recentSleepinessData.loggedAt}}</ion-label>
+      </ion-item>
+      <ion-card-content>{{recentSleepinessData.summaryString()}}</ion-card-content>
+    </ion-card>
+
 
 </ion-content>
