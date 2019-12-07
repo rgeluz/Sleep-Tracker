@@ -4,16 +4,7 @@
 
 export const environment = {
   production: false //,
-  /* firebase: {
-    apiKey: "AIzaSyBoZj_igQ-0r9Fs6Ruas3NbONrtoxztExs",
-    authDomain: "sleep-tracker-67370.firebaseapp.com",
-    databaseURL: "https://sleep-tracker-67370.firebaseio.com",
-    projectId: "sleep-tracker-67370",
-    storageBucket: "sleep-tracker-67370.appspot.com",
-    messagingSenderId: "269630439003",
-    appId: "1:269630439003:web:e192376e579f132962897e",
-    measurementId: "G-RVD3TQY7F8"
-  } */
+  //Removed firebase: { .... } , as I didn want to check this into github. See Assignment4_Readme for api info.
 };
 
 /*
