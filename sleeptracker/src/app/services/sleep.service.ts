@@ -85,18 +85,15 @@ export class SleepService {
     console.log('logOvernightData()');
   	SleepService.AllSleepData.push(sleepData);
     SleepService.AllOvernightData.push(sleepData);
-    
+    //Ionic Storage
     this.AllOvernightDataStorage.set(sleepData.id, sleepData);
-
-
-
   }
 
   public logSleepinessData(sleepData:StanfordSleepinessData) {
     console.log('logSleepinessData()');
   	SleepService.AllSleepData.push(sleepData);
     SleepService.AllSleepinessData.push(sleepData);
-    
+    //Ionic Storage
     this.AllSleepinessDataStorage.set(sleepData.id, sleepData);
   }
 
