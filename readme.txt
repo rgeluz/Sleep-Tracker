@@ -5,14 +5,14 @@ date started: 11/23/2019
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
-*/10
+10/10
 -1/1 The ability to log overnight sleep
 - 1/1 The ability to log sleepiness during the day
 - 1/1 The ability to view these two categories of logged data
 - 2/2 Either using a native device resource or backing up logged data
 - 2/2 Following good principles of mobile design
 - 2/2 Creating a compelling app
-- 2/1 A readme which explains how these features were implemented and their design rationale
+- 1/1 A readme which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
 	It took several days. In total hours, maybe 20 plus hours spread over two weeks.
