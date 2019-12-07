@@ -7,14 +7,39 @@
 <ion-content>
 
   <p>Cards</p>
-    <p>Overnight Sleep Data </p>
+  <p>Overnight Sleep Data </p>
     <ion-card *ngFor="let overnightSleepData of overnightSleepDataArray">
         <ion-card-header>
           <ion-card-subtitle>{{overnightSleepData.loggedAt}}</ion-card-subtitle>
           <ion-card-title>{{overnightSleepData.dateString()}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>{{overnightSleepData.summaryString()}}<br>
+          
+          <circle-progress
+          [percent]=overnightSleepData.getSleepPercentage()
+          [radius]="100"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]=overnightSleepData.getCircleProgressBarColor()
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+          ></circle-progress>
+
+        <!--
           PLACE CIRCULAR PROGRESS BAR HERE
+          <circle-progress
+          [percent]="85"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+        ></circle-progress>
+        -->
         </ion-card-content>
       </ion-card>
 
