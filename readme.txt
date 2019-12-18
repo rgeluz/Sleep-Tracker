@@ -1,3 +1,8 @@
+//To Run app
+cd into the "sleeptracker" directory and then run the command "ionic lab"
+
+
+
 --Readme document for *author(s)*, *email(s)*, *UCI id(s)*--
 author: Roman Geluz
 email: geluzr@uci.edu
